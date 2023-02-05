@@ -11,21 +11,23 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const validateData = useEffect(() => {
+  useEffect(() => {
     setTimeout(() => { 
       setFormIsValid(enteredEmail.includes("@") && enteredPassword.trim().length > 6 ) 
     }, 500)
-    
+    return () => {
+      console.log("CLEAN UP")
+    }
   }, [enteredEmail, enteredPassword])
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
-    validateData(event.target.value)
+    
   };
 
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
-    validateData(event.target.value)
+    
 
   };
 
