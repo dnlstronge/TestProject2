@@ -5,6 +5,10 @@ import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
 
 function App() {
+  const stored_user = localStorage.getItem("isLoggedIn")
+  if(stored_user === "1") {
+    setIsLoggedIn(true)
+  }
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const loginHandler = (email, password) => {
