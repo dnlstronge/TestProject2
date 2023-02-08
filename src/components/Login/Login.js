@@ -13,7 +13,9 @@ const Login = (props) => {
 
   useEffect(() => {
     console.log("Effect Active")
-  })
+
+    return console.log("Effect Clean Up")
+  }, [enteredPassword])
 
 
 
